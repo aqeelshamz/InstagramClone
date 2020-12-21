@@ -1,6 +1,7 @@
 # Instagram Clone
 
 Instagram Clone App made with Flutter.
+
 ![splash](https://github.com/aqeelshamz/InstagramClone/blob/main/screenshots/splash.png)
 
 ## Screenshots
