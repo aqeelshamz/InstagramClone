@@ -1,7 +1,9 @@
 import 'package:InstagramClone/screens/Home/activity.dart';
 import 'package:InstagramClone/screens/Home/home.dart';
 import 'package:InstagramClone/screens/Home/newPost.dart';
+import 'package:InstagramClone/screens/Home/profile.dart';
 import 'package:InstagramClone/screens/Home/reels.dart';
+import 'package:InstagramClone/screens/messages.dart';
 import 'package:InstagramClone/utils/colors.dart';
 import 'package:InstagramClone/utils/constants.dart';
 import 'package:flutter/material.dart';
@@ -31,9 +33,16 @@ class _HomeState extends State<Home> {
               buildBottomNavButton(1, FeatherIcons.playCircle),
               buildBottomNavButton(2, FeatherIcons.plusSquare),
               buildBottomNavButton(3, FeatherIcons.heart),
-              CircleAvatar(
-                backgroundImage:
-                    Image.asset("assets/images/profilePic.jpg").image,
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _currentIndex = 4;
+                  });
+                },
+                child: CircleAvatar(
+                  backgroundImage:
+                      Image.asset("assets/images/profilePic.jpg").image,
+                ),
               ),
             ],
           ),
@@ -72,13 +81,34 @@ class _HomeState extends State<Home> {
                             SizedBox(
                               width: width * 0.04,
                             ),
-                            IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                FeatherIcons.messageCircle,
-                                size: iconSize,
+                            Stack(children: [
+                              IconButton(
+                                onPressed: () {
+                                  Get.to(
+                                    Messages(),
+                                    transition: Transition.rightToLeft,
+                                  );
+                                },
+                                icon: Icon(
+                                  FeatherIcons.messageCircle,
+                                  size: iconSize,
+                                ),
                               ),
-                            ),
+                              Positioned(
+                                  top: 0,
+                                  right: -width * 0.002,
+                                  child: CircleAvatar(
+                                    backgroundColor: Colors.red[400],
+                                    radius: width * 0.022,
+                                    child: Text(
+                                      "20",
+                                      style: TextStyle(
+                                        color: white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  )),
+                            ]),
                             SizedBox(
                               width: width * 0.04,
                             ),
@@ -93,7 +123,9 @@ class _HomeState extends State<Home> {
                     ? Reels()
                     : _currentIndex == 3
                         ? Activity()
-                        : SizedBox.shrink()
+                        : _currentIndex == 4
+                            ? Profile()
+                            : SizedBox.shrink()
           ],
         ),
       ),

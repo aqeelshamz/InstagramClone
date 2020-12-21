@@ -5,30 +5,44 @@ import 'package:flutter/material.dart';
 class ProfileCircle extends StatelessWidget {
   final String image;
   final bool small;
-  ProfileCircle(this.image, this.small);
+  final bool profile;
+  final bool chat;
+  ProfileCircle(this.image, this.small, this.profile, this.chat);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: small ? width * 0.09 : width * 0.2,
-      height: small ? width * 0.09 : width * 0.2,
+      width: chat ? width * 0.128 : profile
+          ? width * 0.25
+          : small
+              ? width * 0.09
+              : width * 0.2,
+      height: chat ? width * 0.128 : profile
+          ? width * 0.25
+          : small
+              ? width * 0.09
+              : width * 0.2,
       decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [
-                Colors.pink[900],
-                Colors.pink,
-                Colors.red,
-                Colors.orange,
-                Colors.orange
-              ])),
+        shape: BoxShape.circle,
+        gradient: LinearGradient(
+          begin: Alignment.topRight,
+          end: Alignment.bottomLeft,
+          colors: instaGradient,
+        ),
+      ),
       child: Center(
         child: Container(
           padding: EdgeInsets.all(width * 0.006),
-          width: small ? width * 0.08 : width * 0.19,
-          height: small ? width * 0.08 : width * 0.19,
+          width: chat ? width * 0.12 : profile
+              ? width * 0.24
+              : small
+                  ? width * 0.08
+                  : width * 0.19,
+          height: chat ? width * 0.12 : profile
+              ? width * 0.24
+              : small
+                  ? width * 0.08
+                  : width * 0.19,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: white,

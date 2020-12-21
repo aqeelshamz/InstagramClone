@@ -1,5 +1,6 @@
 import 'package:InstagramClone/utils/colors.dart';
 import 'package:InstagramClone/utils/constants.dart';
+import 'package:InstagramClone/widgets/Activity/activityRow.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
@@ -75,23 +76,9 @@ class _ActivityState extends State<Activity> {
                           fontWeight: FontWeight.w500),
                     ),
                     SizedBox(height: height * 0.02),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            CircleAvatar(),
-                            Text("aqeelshamz"),
-                            Text(" liked your post. "),
-                            Text("2m"),
-                          ],
-                        ),
-                        Container(
-                            width: width * 0.1,
-                            height: width * 0.1,
-                            color: black),
-                      ],
-                    ),
+                    buildActivityRow(),
+                    buildActivityRow(),
+                    buildActivityRow()
                   ],
                 ),
               ),

@@ -30,6 +30,8 @@ class _StoriesState extends State<Stories> {
                 ProfileCircle(
                   index == 0 ? stories[0]['image'] : stories[index]['image'],
                   false,
+                  false,
+                  false,
                 ),
                 SizedBox(
                   height: height * 0.005,

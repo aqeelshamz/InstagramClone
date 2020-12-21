@@ -24,7 +24,7 @@ class Posts {
                 children: [
                   Row(
                     children: [
-                      ProfileCircle("assets/images/profilePic.jpg", true),
+                      ProfileCircle("assets/images/profilePic.jpg", true, false, false),
                       SizedBox(
                         width: width * 0.02,
                       ),
