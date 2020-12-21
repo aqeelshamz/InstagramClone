@@ -115,7 +115,7 @@ class Posts {
                               fontWeight: FontWeight.w500),
                           children: <TextSpan>[
                             TextSpan(
-                                text: ' This is the caption sss ssswsw ssswsw ssswsw ssswswssswswssswswssswsw ssswswssswsw ssswsw ssswsw ssswswssswsw ssswsw',
+                                text: ' This is the caption. Welcome to Instagram Clone. Lorem ipsum dolor sit amet. ',
                                 style: TextStyle(
                                     color: black,
                                     fontSize: fontSize * 1.4,
